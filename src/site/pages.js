@@ -33,6 +33,7 @@ function chapter({ id, label, image, tone = '', inner }) {
 }
 
 /* ---------- Landing ---------- */
+const ceo = leadership[0];
 
 const heroSection = `
   <section class="hero chapter" id="top" data-chapter="Merkel">
@@ -96,25 +97,20 @@ const metricsSection = chapter({
 const leadershipSection = chapter({
   id: 'leadership',
   label: 'Leadership',
-  // Every person in leadership.json, so adding one is a data change. The
-  // section eyebrow belongs to the first block and the careers link to the
-  // last, otherwise both repeat down the page.
-  inner: leadership
-    .map((person, i) => `
+  inner: `
       <div class="leadership">
         <div class="leadership-media" data-reveal>
-          <img src="${person.image}" alt="Portrait of ${person.name}" loading="lazy" />
-          <span class="leadership-badge">${person.role}</span>
+          <img src="${ceo.image}" alt="Portrait of ${ceo.name}" loading="lazy" />
+          <span class="leadership-badge">${ceo.role}</span>
         </div>
         <div class="leadership-body" data-reveal>
-          ${i === 0 ? '<span class="eyebrow">03 / Leadership</span>' : ''}
-          <blockquote>&ldquo;${person.quote}&rdquo;</blockquote>
-          <h3>${person.name}</h3>
-          <p>${person.bio}</p>
-          ${i === leadership.length - 1 ? '<a href="/careers" class="link-arrow">Join the studio <span class="arw">&rsaquo;</span></a>' : ''}
+          <span class="eyebrow">03 / Leadership</span>
+          <blockquote>&ldquo;${ceo.quote}&rdquo;</blockquote>
+          <h3>${ceo.name}</h3>
+          <p>${ceo.bio}</p>
+          <a href="/careers" class="link-arrow">Join the studio <span class="arw">&rsaquo;</span></a>
         </div>
-      </div>`)
-    .join('\n'),
+      </div>`,
 });
 
 const workSection = chapter({

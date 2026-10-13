@@ -43,7 +43,6 @@
     },
     "projectsHeader": {
       "prefer": [
-        "inspection",
         "m3",
         "mk1",
         "merkel4"
